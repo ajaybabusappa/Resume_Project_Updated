@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+	<title>Education Details</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0" /> 
+<meta http-equiv="Pragma" content="no-cache" />
+
+</head>
+<body>
+
+	<form  method="post" >
+
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+ <button type="submit" class="btn btn-primary" value="next/" formaction="next/"> Save & Next</button>
+
+
+   <button type="submit" class="btn btn-primary" formaction="back/">Back</button>
+
+
+    <!--
+    
+  <div class="form-group" >
+    <label for="school">School Name</label>
+    <input type="text" class="form-control" id="school" name="school_name">
+  </div>
+
+  <div class="form-group">
+    <label for="loc">School Location</label>
+    <input type="text" class="form-control" id="loc" name="school_location">
+  </div>
+
+  <div class="form-group">
+    <label for="degree">Degree</label>
+    <input type="text" class="form-control" id="degree" name="Degree">
+  </div>
+
+  <div class="form-group">
+    <label for="cgpa">CGPA</label>
+    <input type="text" class="form-control" id="cgpa" name="CGPA">
+  </div>
+
+  <div class="form-group">
+    <label for="study">Field of Study</label>
+    <input type="text" class="form-control" id="study" name="Field_of_Study">
+  </div>
+
+  <div class="form-group">
+    <label for="Grad">Expected year of grad</label>
+    <input type="text" class="form-control" id="Grad" name="Expected_year_of_grad">
+  </div>
+
+-->
+  
+ 
+
+</form>
+
+
+
+
+</body>
+</html>
