@@ -1,0 +1,22 @@
+<!--Tejaswini-->
+<h1>Other Details....</h1>
+
+<ul>
+
+{% for x in object_list %}
+ <li>{{x.field_name}}<br>
+ 
+
+
+
+<a href ="{% url 'updateviewef' x.pk %}">Edit</a>
+<a href="{% url 'deleteviewef' x.pk %}">Delete</a>
+
+{% endfor %}
+
+
+<a href="{% url 'addonemoreaddon' %}">Add one more</a>
+<a href="{% url 'home1' %}">save and Next</a>
+</ul>
+
+<!--Tejaswini-->

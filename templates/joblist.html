@@ -1,0 +1,21 @@
+<h1>Job details</h1>
+
+<ul>
+
+{% for z in object_list %}
+ <li>{{z.job_title}}<br>
+ {{z.city}}</li>
+
+
+
+<a href ="{% url 'updateviewjob' z.pk %}">Edit</a>
+<a href="{% url 'deleteviewjob' z.pk %}">Delete</a>
+
+{% endfor %}
+
+
+<a href="{% url 'job345' %}">Add one more</a>
+<a href="{% url 'skillsedu' %}">save and Next</a>
+</ul>
+
+

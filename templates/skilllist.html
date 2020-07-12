@@ -1,0 +1,18 @@
+<h1>Skills</h1>
+
+<ul>
+
+{% for x in object_list %}
+ <li>{{x.skill}}</li>
+
+
+
+<a href ="{% url 'skillsupdateview' x.pk %}">Edit</a>
+<a href="{% url 'skillsdeleteview' x.pk %}">Delete</a>
+
+{% endfor %}
+
+
+<a href="{% url 'skillseducrev' %}">Add one more</a>
+<a href="{% url 'home' %}">save and Next</a>
+</ul>

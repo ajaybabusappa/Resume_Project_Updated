@@ -6,9 +6,12 @@
 <body>
 Add skill
 <form method="post">
-	<input type="text" name="skill">
-	<button type="submit" class="btn btn-primary" formaction="skill/">Next</button>
-    <button type="submit" class="btn btn-primary" formaction="add/">Add one more</button>
+	{% csrf_token %}
+
+    {{form.as_p}}
+
+	
+    <button type="submit" class="btn btn-primary" formaction="next/">Next</button>
 </form>
 </body>
 </html>

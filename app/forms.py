@@ -1,8 +1,8 @@
 from django import forms
-from . models import extrafield,educ,contactdetails,workexp
+from . models import extrafield,educ,contactdetails,workexp,skills
 
 
-class Extrafielfform(forms.ModelForm):
+class Extrafieldform(forms.ModelForm):
 	class Meta:
 		model = extrafield
 		fields = ['field_name','explanation']
@@ -25,3 +25,10 @@ class jobform(forms.ModelForm):
 	class Meta:
 		model = workexp
 		fields ='__all__'
+
+
+ #THE BELOW CODE IS ADDED BY SIRI.
+class skilldetails(forms.ModelForm):
+	class Meta:
+		model=skills
+		fields='__all__'
