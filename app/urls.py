@@ -16,7 +16,7 @@ urlpatterns=[
      path ('login/next/<int:pk>/delete/',views.Deletepostview.as_view(), name='deleteview'),
      
 
-     path('login/next/job/skill/',views.addonstest,name='home'),#Tejaswini
+     path('login/next/job/skill/',views.addonstest,name='extra'),#Tejaswini
      path('login/next/job/skill/addonemorefield/',views.addonemoreaddon,name='addonemoreaddon'),
      path('login/next/job/skill/fieldadd/',views.ExtrafieldView.as_view(),name='extrafi'),
      path ('login/next/job/skill/fieldadd/<int:pk>',views.UpdateEFView.as_view(), name='updateviewef'),

@@ -129,7 +129,7 @@ class UpdatepostView(UpdateView):
 
 @csrf_exempt
 def educrev (request):
-	return HttpResponseRedirect('/login/')
+	return HttpResponseRedirect('/logedin/login')
 
 
 
@@ -244,7 +244,7 @@ def addonemoreaddon(request):
 	#field_name= request.POST.get('field_name',False)
 	#explanation= request.POST.get('explanation',False)
 	#xyz = extrafield.objects.create(field_name=field_name,explanation=explanation)
-	return HttpResponseRedirect('/login/next/job/skill/')
+	return HttpResponseRedirect('logedin/login/next/job/skill/')
 
 	#Tejaswini*************************************************************
 
