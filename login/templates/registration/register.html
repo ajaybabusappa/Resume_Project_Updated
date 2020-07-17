@@ -1,10 +1,10 @@
-{% extends 'index.html' %}
-{% block content %}
-<h1>Create New account</h1>
-<form method="POST">
-	{% csrf_token %}
-	{{form.as_p}}
-	<button>Register</button>
-	
-</form>
-{% endblock %}
+<h1>Register</h1>
+<br />
+<br />
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Register</button>
+    </form>
+</div>

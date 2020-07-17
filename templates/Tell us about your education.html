@@ -10,7 +10,7 @@
 <body>
 
 	<form  method="post" >
-
+<h1>{{request.user}}</h1>
     {% csrf_token %}
 
     {{form.as_p}}

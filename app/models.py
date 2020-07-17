@@ -78,4 +78,20 @@ class extrafield(models.Model):
 	def get_absolute_url (self):
 		return reverse ('extrafi')
 
-		
+#charan
+# Create your models here.
+class Resume_No(models.Model):
+    name = models.CharField(max_length=250)
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return reverse('home') 
+
+
+
+class Details(models.Model):
+    name = models.CharField(max_length=250)
+    rs_no = models.ForeignKey(Resume_No,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
