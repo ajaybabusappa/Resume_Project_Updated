@@ -93,7 +93,7 @@ class EducationView(ListView):
 		CGPA = request.POST.get('CGPA',False)
 		Field_of_Study = request.POST.get('Field_of_Study',False)
 		Expected_year_of_grad = request.POST.get('Expected_year_of_grad',False)
-		contactx = educ.objects.create(author=author,resume_name=resume_name,school_name=school_name,school_location=school_location,Degree=Degree,CGPA=CGPA,
+		contactx = educ.objects.create(author=author,school_name=school_name,school_location=school_location,Degree=Degree,CGPA=CGPA,
 			Field_of_Study=Field_of_Study,Expected_year_of_grad=Expected_year_of_grad)
 		contactx2 = serializers.serialize ('json',[contactx])
 		request.session['msg']=contactx2
@@ -175,11 +175,11 @@ def home(request):
 	else:
 		author = request.user
 		print(author)
-		resume_name=request.POST.get('resume_name')
-		print(resume_name)
+		#resume_name=request.POST.get('resume_name')
+		#print(resume_name)
 		field_name= request.POST.get('field_name',False)
 		explanation= request.POST.get('explanation',False)
-		xyz = extrafield.objects.create(author=author,resume_name=resume_name,field_name=field_name,explanation=explanation)
+		xyz = extrafield.objects.create(author=author,field_name=field_name,explanation=explanation)
 	adds1 = extrafield.objects.all()
 	return render(request,'home.html',{'i':contact2,'contacte1':contacte2,'job1':job2,'skills':skill2,'adds':adds2})
 	#return render (request,'Extra_field')
@@ -212,7 +212,7 @@ class ExtrafieldView(ListView):
 		
 		field_name=request.POST.get('field_name',False)
 		explanation=request.POST.get('explanation',False)
-		contactx = extrafield.objects.create(author=author,resume_name=resume_name,field_name=field_name,explanation=explanation)
+		contactx = extrafield.objects.create(author=author,field_name=field_name,explanation=explanation)
 		contactx2 = serializers.serialize ('json',[contactx])
 		request.session['msg']=contactx2
 		return redirect(request.path)
@@ -284,8 +284,8 @@ class SkillsView(ListView):
 		
 		skill = request.POST.get('skill',False)
 		author = request.user
-		resume_name=request.POST['resume_name']
-		contactx = skills.objects.create(author=author,resume_name=resume_name,skill=skill)
+		#resume_name=request.POST['resume_name']
+		contactx = skills.objects.create(author=author,skill=skill)
 		contactx2 = serializers.serialize ('json',[contactx])
 		request.session['msg']=contactx2
 		return redirect(request.path)
@@ -353,10 +353,12 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from django.views import View
 from xhtml2pdf import pisa
+from django.template import Context
 
 
 def render_to_pdf(template_src, context_dict={}):
     template = get_template(template_src)
+    context=Context(context_dict)
     html  = template.render(context_dict)
     result = BytesIO()
     pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
@@ -398,3 +400,95 @@ class DownloadPDF(View):
 def index(request):
 	context = {}
 	return render (request,'home.html',context)
+
+
+
+def homer(request):
+	return render(request,'mainsample.html')
+
+
+
+
+
+
+
+
+
+
+#import os
+
+#from weasyprint import HTML
+
+#from django.template import Template, Context
+#from django.http import HttpResponse 
+
+
+#def generate_pdf(self, report_id):
+
+        # Render HTML into memory and get the template firstly
+      #  template_file_loc = os.path.join(os.path.dirname(__file__), os.pardir, 'templates', 'the_template_pdf_generator.html')
+      # template_contents = read_all_as_str(template_file_loc)
+       # render_template = Template(template_contents)
+
+        #rendering_map is the dict for params in the template 
+      #  render_definition = Context(rendering_map)
+      #  render_output = render_template.render(render_definition)
+
+        # Using Rendered HTML to generate PDF
+      #  response = HttpResponse(content_type='application/pdf')
+      #  response['Content-Disposition'] = 'attachment; filename=%s-%s-%s.pdf' % \
+     #                                     ('topic-test','topic-test', '2018-05-04')
+        # Generate PDF
+     #   pdf_doc = HTML(string=render_output).render()
+    #    pdf_doc.pages[0].height = pdf_doc.pages[0]._page_box.children[0].children[
+    #        0].height  # Make PDF file as single page file 
+    #    pdf_doc.write_pdf(response)
+   #     return response
+
+#def read_all_as_str(self, file_loc, read_method='r'):
+  #  if file_exists(file_loc):
+ #       handler = open(file_loc, read_method)
+ #       contents = handler.read()
+ #       handler.close()
+#       return contents
+#    else:
+#        return 'file not exist'  
+
+
+
+
+#def export_to_pdf(request, tip_id):
+#    options = {
+#       'page-size': 'A4',
+#        'margin-top': '0.55in',
+#        'margin-right': '0.55in',
+ #       'margin-bottom': '0.55in',
+ #       'margin-left': '0.55in',
+  #      'encoding': "UTF-8",
+  #      # any other wkhtmltopdf options
+  #  }
+  #  contact1 = contactdetails.objects.filter(author=request.user)
+	#	contacte1 = educ.objects.filter(author=request.user)
+	#	job1 = workexp.objects.filter(author=request.user)
+	#	skill1=skills.objects.filter(author=request.user)
+	#	adds = extrafield.objects.filter(author=request.user)
+
+	#	data={'i':contact1,'contacte1':contacte1,'job1':job1,'skills':skill1,'adds':adds}
+
+    #content = render_to_string(
+    #    'home.html', {
+    #       'contents': data
+    #    }
+    #)
+
+    #pdf = pdfkit.PDFKit(content, "string", options=options).to_pdf()
+
+    #response = HttpResponse(pdf)
+    #response['Content-Type'] = 'application/pdf'
+    # change attachment to inline if you want open file in browser tab instead downloading
+    #response['Content-disposition'] = 'inline;filename={}.pdf'.format(your_filename)
+
+    #return response
+
+
+

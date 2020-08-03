@@ -1,66 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
-	<title>Education Details</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0" /> 
-<meta http-equiv="Pragma" content="no-cache" />
-
+  <title>Education Details</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
+  <div class="container card bg-light">
+  <div class="form-group col-12 ">
+    
+  <form  method="post" >
 
-	<form  method="post" >
-<h1>{{request.user}}</h1>
     {% csrf_token %}
 
     {{form.as_p}}
 
- <button type="submit" class="btn btn-primary" value="next/" formaction="next/"> Save & Next</button>
+    <div class="btn-group btn-group-toggle " data-toggle="buttons">
 
-
-   <button type="submit" class="btn btn-primary" formaction="back/">Back</button>
-
-
-    <!--
-    
-  <div class="form-group" >
-    <label for="school">School Name</label>
-    <input type="text" class="form-control" id="school" name="school_name">
+     <button type="submit" class="btn btn-success active " value="next/" formaction="next/"> Save & Next</button>
+     <button type="submit" class="btn btn-outline-success" formaction="back/">Back</button>
+    </div>
+  </form>
   </div>
-
-  <div class="form-group">
-    <label for="loc">School Location</label>
-    <input type="text" class="form-control" id="loc" name="school_location">
   </div>
-
-  <div class="form-group">
-    <label for="degree">Degree</label>
-    <input type="text" class="form-control" id="degree" name="Degree">
-  </div>
-
-  <div class="form-group">
-    <label for="cgpa">CGPA</label>
-    <input type="text" class="form-control" id="cgpa" name="CGPA">
-  </div>
-
-  <div class="form-group">
-    <label for="study">Field of Study</label>
-    <input type="text" class="form-control" id="study" name="Field_of_Study">
-  </div>
-
-  <div class="form-group">
-    <label for="Grad">Expected year of grad</label>
-    <input type="text" class="form-control" id="Grad" name="Expected_year_of_grad">
-  </div>
-
--->
-  
- 
-
-</form>
-
-
-
-
 </body>
 </html>

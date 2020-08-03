@@ -6,6 +6,10 @@ from django.views.generic import ListView,DetailView
 from django.urls import reverse
 
 default_user_id =1
+class Category(models.Model):
+	name=models.CharField(max_length=255)
+	def __str__(self):
+		return self.name
 class contactdetails(models.Model):
 	author = models.ForeignKey(User,on_delete=models.CASCADE,default=default_user_id)
 	resume_name = models.CharField(max_length=100,default='resume')
@@ -17,7 +21,7 @@ class contactdetails(models.Model):
 	phone= models.CharField(max_length=12)
 	email= models.EmailField(max_length=40)
 	personal_profile = models.CharField(max_length=1000)
-
+	
 
 
 class educ(models.Model):
@@ -77,7 +81,6 @@ class extrafield(models.Model):
 
 	def get_absolute_url (self):
 		return reverse ('extrafi')
-
 #charan
 # Create your models here.
 class Resume_No(models.Model):

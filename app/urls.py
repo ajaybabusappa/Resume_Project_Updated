@@ -54,6 +54,11 @@ urlpatterns=[
           #chichaa code
       path('',HomeView.as_view(),name="home"),
       path('addr',addview.as_view(),name='addresume'),
-      path('addr/addd',adddview.as_view(),name='adddetails')
+      path('addr/addd',adddview.as_view(),name='adddetails'),
 
+
+
+      path('check2',views.homer,name='mainpage'),
+
+      
 ]
