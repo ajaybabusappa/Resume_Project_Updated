@@ -40,7 +40,7 @@ urlpatterns=[
          #path('login/next/job/skill/',views.addonstest,name='home'),
          #path('login/next/job/skill/addonemorefield/',views.addonemoreaddon,name='home'),
          #path('login/next/job/skill/next/fieldadd/',views.home,name='home'),
-     path('addr/cd/login/next/job/skill/next/fieldadd/pdf_view/',views.viewPDF.as_view(),name='pdf_view'),
+     path('addr/cd/login/next/job/skill/final/pdf_view/',views.viewPDF.as_view(),name='pdf_view'),
 
           #path('login/back/',views.backopt,name='backopt'),
           #path('login/next/job/',views.skillsfun,name='skillfun'),
